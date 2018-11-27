@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.sample.json",
+  "compilerOptions": {
+    "module": "es2015",
+    "types": []
+  },
+  "exclude": [
+    "src/test.ts",
+    "src/electron/**/*",
+    "**/*.spec.ts"
+  ]
+}

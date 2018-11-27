@@ -1,0 +1,14 @@
+{
+  "builders": {
+    "electron": {
+      "class": "./src/electron",
+      "schema": "./src/electron/schema.json",
+      "description": "Build an electron renderer app."
+    },
+    "dev-server": {
+      "class": "./dist/dev-server",
+      "schema": "./src/dev-server/schema.json",
+      "description": "Build an electron renderer app."
+    }
+  }
+}

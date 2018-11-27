@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "declarationDir": "typings",
+    "outDir": "./dist"
+  },
+  "files": [
+    "src/electron/index.ts",
+    "src/electron/schema.ts",
+    "src/dev-server/index.ts",
+    "src/electron/build-electron.ts"
+
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "productName": "sample-electron",
+  "directories": {
+    "output": "../../dist/"
+  },
+  "files": [
+    {
+      "from": "../../dist/electron/",
+      "to" : ".",
+      "filter": "**/*"
+    },
+    "**/*"
+    ],
+  "win": {
+
+    "target": [
+      "zip"
+    ]
+  }
+
+}
