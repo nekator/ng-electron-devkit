@@ -1,6 +1,6 @@
 {
   "name": "@ng-electron-devkit/builders",
-  "description": "Development, Test und Build  tools for Angular applications running in electron",
+  "description": "Development, test and build  tools for angular applications running in electron",
   "version": "7.0.0",
   "builders": "builders.json",
   "scripts": {
@@ -18,11 +18,22 @@
     "glob": "^7.1.3"
   },
   "author": "Provinzial Rheinland Versicherung AG",
+  "license": "Mozilla Public License 2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nekator/ng-electron-devkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nekator/ng-electron-devkit/issues"
+  },
+  "homepage": "https://github.com/nekator/ng-electron-devkit",
   "keywords": [
     "electron",
     "angular",
     "devkit",
     "sdk",
-    "Angular DevKit"
+    "Angular DevKit",
+    "electron builder",
+    "dev-server"
   ]
 }
