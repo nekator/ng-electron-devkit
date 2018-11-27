@@ -2,11 +2,15 @@
   "name": "ng-electron-devkit",
   "description": "Development, Test und Build  tools for Angular applications running in electron",
   "version": "7.0.0",
-  "license": "Mozilla Public License 2.0",
+  "license": "MPL-2.0",
   "builders": "builders.json",
   "scripts": {
     "build": "tsc -p packages/builders",
     "build:sample": "npm run build && sh copy-to-sample.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nekator/ng-electron-devkit.git"
   },
   "devDependencies": {
     "@angular-devkit/architect": "^0.10.6",
