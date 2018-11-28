@@ -1,10 +1,11 @@
 {
   "name": "@ng-electron-devkit/builders",
   "description": "Development, test and build  tools for angular applications running in electron",
-  "version": "7.0.0",
+  "version": "7.0.0-alpha0",
   "builders": "builders.json",
   "scripts": {
-    "build": "../../node_modules/.bin/tsc"
+    "build": "../../node_modules/.bin/tsc",
+    "prepublishOnly": "npm run build && npm pack"
   },
   "peerDependencies": {
     "@angular-devkit/architect": ">= 0.10.0",
