@@ -35,5 +35,10 @@
     "Angular DevKit",
     "electron builder",
     "dev-server"
+  ],
+  "files": [
+    "dist/**/*.js",
+    "typings",
+    "builders.json"
   ]
 }

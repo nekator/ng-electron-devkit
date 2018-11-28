@@ -1,7 +1,7 @@
 {
   "builders": {
     "electron": {
-      "class": "./src/electron",
+      "class": "./dist/electron",
       "schema": "./src/electron/schema.json",
       "description": "Build an electron renderer app."
     },
