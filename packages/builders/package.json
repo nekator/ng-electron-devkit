@@ -1,7 +1,7 @@
 {
   "name": "@ng-electron-devkit/builders",
   "description": "Development, test and build  tools for angular applications running in electron",
-  "version": "7.0.0-alpha0",
+  "version": "7.0.0-alpha1",
   "builders": "builders.json",
   "scripts": {
     "build": "../../node_modules/.bin/tsc",

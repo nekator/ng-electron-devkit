@@ -1,7 +1,7 @@
 {
   "name": "ng-electron-devkit",
   "description": "Development, Test und Build  tools for Angular applications running in electron",
-  "version": "7.0.0",
+  "version": "7.0.0-alpha1",
   "license": "MPL-2.0",
   "builders": "builders.json",
   "scripts": {
