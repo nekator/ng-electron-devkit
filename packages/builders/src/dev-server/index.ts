@@ -84,7 +84,7 @@ export class ElectronDevServerBuilder extends DevServerBuilder {
             let args = [electronProjectDir, '--serve'];
             let electron = require('electron');
 
-            this.electronProcess = spawn(electron, args, {stdio: 'inherit'});
+            this.electronProcess = spawn('electron', args, {stdio: 'inherit'});
            // this.electronProcess.on('close', (code) => process.exit(code));
 
             obs.next({success: true});

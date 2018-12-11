@@ -8,6 +8,7 @@
     "src/electron/index.ts",
     "src/electron/schema.ts",
     "src/dev-server/index.ts",
+    "src/spectron/index.ts",
     "src/electron/build-electron.ts"
 
   ]
