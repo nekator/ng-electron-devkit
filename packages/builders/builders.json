@@ -8,7 +8,12 @@
     "dev-server": {
       "class": "./dist/dev-server",
       "schema": "./src/dev-server/schema.json",
-      "description": "Build an electron renderer app."
+      "description": "Start a Dev server"
+    },
+    "spectron": {
+      "class": "./dist/spectron",
+      "schema": "./src/spectron/schema.json",
+      "description": "Run e2e Test for electron."
     }
   }
 }

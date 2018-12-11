@@ -1,0 +1,47 @@
+
+{
+  "title": "Protractor Target",
+  "description": "Protractor target options for Build Facade.",
+  "type": "object",
+  "properties": {
+    "protractorConfig": {
+      "type": "string",
+      "description": "The name of the Protractor configuration file."
+    },
+    "electronBuilderTarget": {
+      "type": "string",
+      "description": "Electron builder target to run tests against."
+    },
+    "electronExecutablePath": {
+      "type": "string",
+      "description": "Path to the executable electron application"
+    },
+    "specs": {
+      "type": "array",
+      "description": "Override specs in the protractor config.",
+      "default": [],
+      "items": {
+        "type": "string",
+        "description": "Spec name."
+      }
+    },
+    "suite": {
+      "type": "string",
+      "description": "Override suite in the protractor config."
+    },
+    "elementExplorer": {
+      "type": "boolean",
+      "description": "Start Protractor's Element Explorer for debugging.",
+      "default": false
+    },
+    "webdriverUpdate": {
+      "type": "boolean",
+      "description": "Try to update webdriver.",
+      "default": true
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "protractorConfig"
+  ]
+}
