@@ -1,7 +1,7 @@
 {
   "name": "@ng-electron-devkit/builders",
   "description": "Development, test and build  tools for angular applications running in electron",
-  "version": "7.0.0-alpha1",
+  "version": "7.0.0-alpha2",
   "builders": "builders.json",
   "scripts": {
     "build": "../../node_modules/.bin/tsc",
@@ -13,7 +13,9 @@
     "@angular-devkit/core": ">= 7.0.0",
     "electron-builder": ">= 20.0.0",
     "electron": ">= 3.0.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.1.6",
+    "protractor": ">=5.4.0",
+    "spectron": ">=5.0.0"
   },
   "dependencies": {
     "@types/rimraf": "^2.0.2",

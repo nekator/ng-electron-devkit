@@ -6,6 +6,10 @@
     "strict": false,
     "esModuleInterop": true,
     "noEmitOnError": true,
+<<<<<<< HEAD
     "types": ["electron", "node"]
+=======
+    "types": ["node", "electron"]
+>>>>>>> b4fcdca60adac00c414501ad0457b9493a8c5d96
   }
 }

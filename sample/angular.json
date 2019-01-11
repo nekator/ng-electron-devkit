@@ -235,7 +235,35 @@
           }
         }
       }
+    },
+    "electron-e2e": {
+    "root": "e2e/",
+    "projectType": "application",
+    "architect": {
+      "e2e": {
+        "builder": "@ng-electron-devkit/builders:spectron",
+        "options": {
+          "protractorConfig": "e2e/protractor.conf.js",
+          "electronBuilderTarget": "electron:build",
+          "electronExecutablePath": "dist/mac/sample-electron.app/Contents/MacOS/sample-electron"
+        },
+        "configurations": {
+          "production": {
+            "devServerTarget": "sample:serve:production"
+          }
+        }
+      },
+      "lint": {
+        "builder": "@angular-devkit/build-angular:tslint",
+        "options": {
+          "tsConfig": "e2e/tsconfig.e2e.json",
+          "exclude": [
+            "**/node_modules/**"
+          ]
+        }
+      }
     }
+  }
   },
   "defaultProject": "electron"
 }
