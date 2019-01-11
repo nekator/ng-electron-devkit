@@ -82,7 +82,7 @@ export class ElectronDevServerBuilder extends DevServerBuilder {
             let electronProjectDir = getSystemPath(resolve(root, normalize(options.electronProjectDir)));
 
             let args = [electronProjectDir, '--serve'];
-            let electron = require('electron');
+            let electron: any = require('electron');
 
             this.electronProcess = spawn(electron, args, {stdio: 'inherit'});
            // this.electronProcess.on('close', (code) => process.exit(code));

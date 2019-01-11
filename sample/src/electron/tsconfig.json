@@ -5,6 +5,7 @@
     "sourceMap": true,
     "strict": false,
     "esModuleInterop": true,
-    "noEmitOnError": true
+    "noEmitOnError": true,
+    "types": ["electron", "node"]
   }
 }
