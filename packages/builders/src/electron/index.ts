@@ -66,7 +66,7 @@ export class ElectronBuilder extends BrowserBuilder {
         );
 
         return runModuleAsObservableFork(
-            root,
+            getSystemPath(root),
             '@ng-electron-devkit/builders/dist/electron/build-electron',
             'build',
             [
