@@ -28,6 +28,7 @@ export class ElectronDevServerBuilder extends DevServerBuilder {
             .pipe(
                 concatMap(() => browserOptions),
                 concatMap(options => {
+                    options = options.options;
                     return this.compileElectronEntryPoint(this.context.workspace.root, options)
                         .pipe(map(() => options));
                 }),
