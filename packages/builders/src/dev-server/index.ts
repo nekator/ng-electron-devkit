@@ -23,39 +23,47 @@ export class ElectronDevServerBuilder extends DevServerBuilder {
         this.originalAddLiveReload = this['_addLiveReload'] as any;
         this['_addLiveReload'] = this._overriddenAddLiveReload;
 
-        let browserOptions = (this['_getBrowserOptions'](builderConfig.options) as Observable<ElectronBuilderSchema>);
+        let browserOptions = (this['_getBrowserOptions'](builderConfig.options) as Observable<{options: ElectronBuilderSchema}>);
         return super.run(builderConfig)
             .pipe(
                 concatMap(() => browserOptions),
                 concatMap(options => {
-                    return this.compileElectronEntryPoint(this.context.workspace.root, options)
-                        .pipe(map(() => options));
+                    let buildOptions = options.options;
+                    return this.compileElectronEntryPoint(this.context.workspace.root, buildOptions)
+                        .pipe(map(() => buildOptions));
                 }),
                 concatMap(options => {
                     return this.startElectron(this.context.workspace.root, options)
                         .pipe(map(() => options));
                 }),
                 concatMap(options => {
-                    return new Observable<BuildEvent>(obs => {
-                        let electronProjectDir = getSystemPath(resolve(this.context.workspace.root, normalize(options.electronProjectDir)));
-                        let hostWatchEventObservable = this.context.host.watch(normalize(electronProjectDir),{recursive: true, persistent:false});
-                        hostWatchEventObservable.subscribe(
-                            (event) => {
-                                // Watch Typescript files in electron project dir
-                                let escapedElectronProjectDirForRegex = options.electronProjectDir.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                                let changedTsFiles = event.path.match(new RegExp('(?!.*\\/node_modules\\/.*)(.*' + escapedElectronProjectDirForRegex + '.*)(.*\\.ts$)'));
-                                if (changedTsFiles && changedTsFiles.length > 0) {
-                                    console.log(event);
-                                    this.compileElectronEntryPoint(this.context.workspace.root, options).pipe(take(1)).subscribe((buildEvent) => {
-                                        this.electronProcess.kill();
-                                        this.startElectron(this.context.workspace.root, options).pipe(take(1)).subscribe((startElectronBuildEvent) => {
-                                            this.context.logger.info('restarted Electron Application');
-                                        })
-                                    });
-                                }
-                            },
-                            (error) => obs.next({success: false}));
-                    })
+                    // watching does not work as intended, therefor its disabled right now
+                    /*if(options.watchElectron){
+                        return new Observable<BuildEvent>(obs => {
+                            let electronProjectDir = getSystemPath(resolve(this.context.workspace.root, normalize(options.electronProjectDir)));
+
+                            let hostWatchEventObservable = this.context.host.watch(normalize(electronProjectDir),{recursive: true, persistent:false});
+                            hostWatchEventObservable.subscribe(
+                                (event) => {
+                                    // Watch Typescript files in electron project dir
+                                    let escapedElectronProjectDirForRegex = options.electronProjectDir.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                                    let changedTsFiles = event.path.match(new RegExp('(?!.*\\/node_modules\\/.*)(.*' + escapedElectronProjectDirForRegex + '.*)(.*\\.ts$)'));
+                                    if (changedTsFiles && changedTsFiles.length > 0) {
+                                        console.log(event);
+                                        this.compileElectronEntryPoint(this.context.workspace.root, options).pipe(take(1)).subscribe((buildEvent) => {
+                                            this.electronProcess.kill();
+                                            this.startElectron(this.context.workspace.root, options).pipe(take(1)).subscribe((startElectronBuildEvent) => {
+                                                this.context.logger.info('restarted Electron Application');
+                                            })
+                                        });
+                                    }
+                                },
+                                (error) => obs.next({success: false}));
+                        })
+                    }else {*/
+                        return of({success: true});
+                    //}
+
                 })
             )
     }
