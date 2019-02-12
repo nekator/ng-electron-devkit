@@ -10,6 +10,8 @@ const args = process.argv.slice(1);
 
 const serve = args.some(val => val === '--serve');
 
+const argsPromise = Promise.resolve(args);
+
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 800});

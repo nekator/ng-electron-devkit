@@ -47,12 +47,17 @@ export function compileElectronEntryPoint(context: BuilderContext, options: Elec
             obs.next({success: false})
         } else {
             const configParseResult = tsConfigReadResult.config;
-
-            let compileroptions = Object.assign({}, ts.getDefaultCompilerOptions(), configParseResult.compilerOptions);
-            compileroptions.outDir = outputPath;
-
-
             let electronProjectDir = resolve(root, normalize(options.electronProjectDir));
+
+            configParseResult.compilerOptions.outDir = outputPath;
+
+            let parsedConfig = ts.convertCompilerOptionsFromJson(configParseResult.compilerOptions, electronProjectDir);
+
+            if(!parsedConfig) {
+                context.logger.error(`Error parsing tsconfig compilerOptions : ${electronTSConfigPath}`);
+                obs.next({success: false});
+            }
+            let compileroptions = parsedConfig.options;
 
             let electronMainEntryPoint = getElectronMainEntryPoint(electronProjectDir);
 
