@@ -49,7 +49,7 @@ export function compileElectronEntryPoint(context: BuilderContext, options: Elec
             const configParseResult = tsConfigReadResult.config;
             let electronProjectDir = resolve(root, normalize(options.electronProjectDir));
 
-            configParseResult.compilerOptions.outDir = outputPath;
+            configParseResult.compilerOptions.outDir = getSystemPath(resolve(root, normalize(outputPath)));
 
             let parsedConfig = ts.convertCompilerOptionsFromJson(configParseResult.compilerOptions, electronProjectDir);
 
