@@ -129,7 +129,12 @@
     tree-kill "1.2.0"
     webpack-sources "1.2.0"
 
-"@types/node@^8.0.24", "@types/node@^8.9.1":
+"@types/node@^10.12.18":
+  version "10.14.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.14.7.tgz#1854f0a9aa8d2cd6818d607b3d091346c6730362"
+  integrity sha512-on4MmIDgHXiuJDELPk1NFaKVUxxCFr37tm8E9yN6rAiF5Pzp/9bBfBHkoexqRiY+hk/Z04EJU9kKEb59YqJ82A==
+
+"@types/node@^8.9.1":
   version "8.10.48"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.48.tgz#e385073561643a9ba6199a1985ffc03530f90781"
   integrity sha1-44UHNWFkOpumGZoZhf/ANTD5B4E=
@@ -2127,12 +2132,12 @@ electron-to-chromium@^1.3.133:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.137.tgz#ba7c88024984c038a5c5c434529aabcea7b42944"
   integrity sha1-unyIAkmEwDilxcQ0Upqrzqe0KUQ=
 
-electron@^3.0.0:
-  version "3.1.9"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-3.1.9.tgz#036bfec3b0b57d60dca250caa0fb2390b8a06092"
-  integrity sha1-A2v+w7C1fWDcolDKoPsjkLigYJI=
+electron@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-5.0.2.tgz#0f6b38ae7e344b94f433d9171e50568f56962fc7"
+  integrity sha512-bUHKQhyuOen/q8iHTkrnzqB9CAwBDI+vHbeu21kpq2bqAD+t25yfrmUEcYHaPL4fZOAhk6nnRqskF6/Xd+aZxg==
   dependencies:
-    "@types/node" "^8.0.24"
+    "@types/node" "^10.12.18"
     electron-download "^4.1.0"
     extract-zip "^1.0.3"
 
