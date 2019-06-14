@@ -13,7 +13,7 @@
     "url": "https://github.com/nekator/ng-electron-devkit.git"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.13.9",
+    "@angular-devkit/architect": "^0.800.3",
     "@angular-devkit/build-angular": "^0.13.9",
     "@angular-devkit/core": "^7.0.6",
     "electron": "^5.0.2",
