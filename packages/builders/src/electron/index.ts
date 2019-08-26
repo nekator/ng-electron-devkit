@@ -78,7 +78,7 @@ export class ElectronBuilder extends BrowserBuilder {
     installElectronApplicationDependencies(builderConfig: BuilderConfiguration<ElectronBuilderSchema>): Observable<BuildEvent> {
 
         return runModuleAsObservableFork(
-            getSystemPath(this.context.workspace.root),
+            getSystemPath(resolve(this.context.workspace.root, normalize(builderConfig.options.electronProjectDir))),
             '@ng-electron-devkit/builders/dist/electron/build-electron',
             'installAppDeps',
             [],
