@@ -1,19 +1,19 @@
 {
   "name": "@ng-electron-devkit/builders",
   "description": "Development, test and build  tools for angular applications running in electron",
-  "version": "7.0.0-alpha8",
+  "version": "8.0.0-alpha1",
   "builders": "builders.json",
   "scripts": {
     "build": "../../node_modules/.bin/tsc",
     "prepublishOnly": "npm run build && npm pack"
   },
   "peerDependencies": {
-    "@angular-devkit/architect": ">= 0.10.0",
-    "@angular-devkit/build-angular": ">= 0.10.0",
-    "@angular-devkit/core": ">= 7.0.0",
-    "electron-builder": ">= 20.0.0",
-    "electron": ">= 3.0.0",
-    "typescript": "^3.1.6",
+    "@angular-devkit/architect": ">= 0.800.0",
+    "@angular-devkit/build-angular": ">= 0.800.0",
+    "@angular-devkit/core": ">= 8.0.0",
+    "electron-builder": ">= 21.0.0",
+    "electron": ">= 4.0.0",
+    "typescript": ">=3.4.0 || <3.6.0",
     "protractor": ">=5.4.0",
     "spectron": ">=5.0.0"
   },

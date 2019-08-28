@@ -1,6 +1,6 @@
 import {app, BrowserWindow, ipcMain, dialog} from 'electron';
 
-if (process.mas) { app.setName('Angular 6 / Electron Demo'); }
+if (process.mas) { app.setName('Angular 8 / Electron Demo'); }
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -14,7 +14,7 @@ const argsPromise = Promise.resolve(args);
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 800});
+  mainWindow = new BrowserWindow({width: 800, height: 800, webPreferences: {nodeIntegration: true}});
 
   if (serve) {
     mainWindow.loadURL('http://localhost:4200');

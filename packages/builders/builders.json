@@ -1,18 +1,18 @@
 {
   "builders": {
     "electron": {
-      "class": "./dist/electron",
+      "implementation": "./dist/electron",
       "schema": "./src/electron/schema.json",
       "description": "Build an electron renderer app."
     },
     "dev-server": {
-      "class": "./dist/dev-server",
+      "implementation": "./dist/dev-server",
       "schema": "./src/dev-server/schema.json",
 
       "description": "Start a Dev server"
     },
     "spectron": {
-      "class": "./dist/spectron",
+      "implementation": "./dist/spectron",
       "schema": "./src/spectron/schema.json",
       "description": "Run e2e Test for electron."
     }

@@ -1,7 +1,6 @@
-import {BrowserBuilderSchema} from "@angular-devkit/build-angular";
 
 
-export interface ElectronBuilderSchema extends BrowserBuilderSchema{
+export interface ElectronBuilderSchema {
     electronTSConfig: string,
     electronPlatforms: string,
     electronProjectDir: string
