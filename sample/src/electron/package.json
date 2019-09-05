@@ -5,7 +5,7 @@
   "author": "Sam Sample",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^3.0.3"
+    "electron": "5.0.10"
   },
   "dependencies": {
     "handlebars": "^4.0.12"

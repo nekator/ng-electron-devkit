@@ -1,28 +1,57 @@
 {
   "name": "ng-electron-devkit",
   "description": "Development, Test und Build  tools for Angular applications running in electron",
-  "version": "7.0.0-alpha5",
+  "version": "8.0.0-alpha2",
   "license": "MPL-2.0",
   "builders": "builders.json",
   "scripts": {
     "build": "tsc -p packages/builders",
-    "build:sample": "npm run build && sh copy-to-sample.sh"
+    "build:sample": "yarn build && sh copy-to-sample.sh"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/nekator/ng-electron-devkit.git"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "prettier": {
+    "useTabs": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "printWidth": 120,
+    "trailingComma": "none"
+  },
+  "lint-staged": {
+    "{packages}/**/*.{css,scss,js,ts,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.10.6",
-    "@angular-devkit/build-angular": "^0.10.6",
-    "@angular-devkit/core": "^7.0.6",
-    "electron": "^3.0.0",
-    "electron-builder": "^20.34.0",
+    "@angular-devkit/architect": "^0.803.1",
+    "@angular-devkit/build-angular": "^0.803.1",
+    "@angular-devkit/core": "^8.3.0",
+    "@angular/compiler": "^8.2.5",
+    "@angular/core": "^8.2.5",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^10.0.0",
+    "codelyzer": "^5.1.0",
+    "electron": "^6.0.0",
+    "electron-builder": "^21.2.0",
     "glob": "^7.1.3",
-    "typescript": "^3.1.6",
-    "@types/node": "^8.9.1",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
+    "jest": "^24.9.0",
+    "prettier": "1.18.2",
     "protractor": "^5.4.1",
-    "spectron": "^5.0.0"
+    "spectron": "^5.0.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.19.0",
+    "tslint-angular": "^3.0.2",
+    "typescript": "~3.4.0"
   },
   "author": "Provinzial Rheinland Versicherung AG",
   "keywords": [

@@ -1,104 +1,87 @@
-import {BuilderConfiguration, BuilderContext, BuildEvent} from "@angular-devkit/architect";
-import {Observable, of} from "rxjs";
-import {tap, concatMap, mergeMap, map, flatMap, take} from "rxjs/operators";
-import {DevServerBuilder, DevServerBuilderOptions} from "@angular-devkit/build-angular";
-import {buildWebpackConfig, compileElectronEntryPoint, getElectronMainEntryPoint} from '../common/common';
-import {getSystemPath, normalize, Path, resolve} from '@angular-devkit/core';
-import {ElectronBuilderSchema} from '../electron/schema';
-import {ChildProcess, spawn} from 'child_process';
-import {HostWatchEvent} from "@angular-devkit/core/src/virtual-fs/host";
+import { BuilderContext, BuilderOutput, createBuilder, targetFromTargetString } from '@angular-devkit/architect';
+import { DevServerBuilderOptions, executeDevServerBuilder } from '@angular-devkit/build-angular';
+import { getSystemPath, json, normalize, Path, resolve } from '@angular-devkit/core';
+import { ChildProcess, spawn } from 'child_process';
+import { from, Observable, of } from 'rxjs';
+import { concatMap, map, switchMap } from 'rxjs/operators';
+import { buildWebpackConfig, compileElectronEntryPoint } from '../common/common';
+import { ElectronBuilderOptions } from '../electron';
 
+let electronProcess: ChildProcess;
 
-export class ElectronDevServerBuilder extends DevServerBuilder {
+const getOptions = async function(context: BuilderContext, browserTarget) {
+  const rawBrowserOptions = await context.getTargetOptions(browserTarget);
+  const browserName = await context.getBuilderNameForTarget(browserTarget);
+  return await context.validateOptions<json.JsonObject & ElectronBuilderOptions>({ ...rawBrowserOptions }, browserName);
+};
 
-    electronProcess: ChildProcess;
+export function run(builderConfig: DevServerBuilderOptions, context: BuilderContext): Observable<BuilderOutput> {
+  return executeDevServerBuilder(builderConfig, context, { webpackConfiguration: buildWebpackConfig }).pipe(
+    concatMap(opts => {
+      const browserTarget = targetFromTargetString(builderConfig.browserTarget);
+      const builderOptions = getOptions(context, browserTarget);
+      return from(builderOptions).pipe(
+        switchMap(options =>
+          _compileElectronEntryPoint(normalize(context.workspaceRoot), options, context).pipe(map(() => options))
+        )
+      );
+    }),
+    concatMap(builderOptions => {
+      return startElectron(normalize(context.workspaceRoot), builderOptions).pipe(map(() => builderOptions));
+    }),
+    concatMap(options => {
+      // watching does not work as intended, therefor its disabled right now
+      /*if(options.watchElectron){
+    return new Observable<BuildEvent>(obs => {
+        let electronProjectDir = getSystemPath(resolve(this.context.workspace.root, normalize(options.electronProjectDir)));
 
-    originalAddLiveReload: any;
-
-    constructor(public context: BuilderContext) {
-        super(context);
-    }
-
-    run(builderConfig: BuilderConfiguration<DevServerBuilderOptions>): Observable<BuildEvent> {
-        this.originalAddLiveReload = this['_addLiveReload'] as any;
-        this['_addLiveReload'] = this._overriddenAddLiveReload;
-
-        let browserOptions = (this['_getBrowserOptions'](builderConfig.options) as Observable<{options: ElectronBuilderSchema}>);
-        return super.run(builderConfig)
-            .pipe(
-                concatMap(() => browserOptions),
-                concatMap(options => {
-                    let buildOptions = options.options;
-                    return this.compileElectronEntryPoint(this.context.workspace.root, buildOptions)
-                        .pipe(map(() => buildOptions));
-                }),
-                concatMap(options => {
-                    return this.startElectron(this.context.workspace.root, options)
-                        .pipe(map(() => options));
-                }),
-                concatMap(options => {
-                    // watching does not work as intended, therefor its disabled right now
-                    /*if(options.watchElectron){
-                        return new Observable<BuildEvent>(obs => {
-                            let electronProjectDir = getSystemPath(resolve(this.context.workspace.root, normalize(options.electronProjectDir)));
-
-                            let hostWatchEventObservable = this.context.host.watch(normalize(electronProjectDir),{recursive: true, persistent:false});
-                            hostWatchEventObservable.subscribe(
-                                (event) => {
-                                    // Watch Typescript files in electron project dir
-                                    let escapedElectronProjectDirForRegex = options.electronProjectDir.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                                    let changedTsFiles = event.path.match(new RegExp('(?!.*\\/node_modules\\/.*)(.*' + escapedElectronProjectDirForRegex + '.*)(.*\\.ts$)'));
-                                    if (changedTsFiles && changedTsFiles.length > 0) {
-                                        console.log(event);
-                                        this.compileElectronEntryPoint(this.context.workspace.root, options).pipe(take(1)).subscribe((buildEvent) => {
-                                            this.electronProcess.kill();
-                                            this.startElectron(this.context.workspace.root, options).pipe(take(1)).subscribe((startElectronBuildEvent) => {
-                                                this.context.logger.info('restarted Electron Application');
-                                            })
-                                        });
-                                    }
-                                },
-                                (error) => obs.next({success: false}));
+        let hostWatchEventObservable = this.context.host.watch(normalize(electronProjectDir),{recursive: true, persistent:false});
+        hostWatchEventObservable.subscribe(
+            (event) => {
+                // Watch Typescript files in electron project dir
+                let escapedElectronProjectDirForRegex = options.electronProjectDir.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                let changedTsFiles = event.path
+                .match(new RegExp('(?!.*\\/node_modules\\/.*)(.*' + escapedElectronProjectDirForRegex + '.*)(.*\\.ts$)'));
+                if (changedTsFiles && changedTsFiles.length > 0) {
+                    console.log(event);
+                    this.compileElectronEntryPoint(this.context.workspace.root, options)
+                    .pipe(take(1)).subscribe((buildEvent) => {
+                        this.electronProcess.kill();
+                        this.startElectron(this.context.workspace.root, options)
+                        .pipe(take(1)).subscribe((startElectronBuildEvent) => {
+                            this.context.logger.info('restarted Electron Application');
                         })
-                    }else {*/
-                        return of({success: true});
-                    //}
-
-                })
-            )
-    }
-
-    _overriddenAddLiveReload(options, browserOptions, webpackConfig, // tslint:disable-line:no-any
-                             clientAddress) {
-        if (this.originalAddLiveReload) {
-            this.originalAddLiveReload.apply(this, arguments);
-
-            let newWebpackConfig = buildWebpackConfig(webpackConfig);
-            Object.assign(webpackConfig, newWebpackConfig);
-        }
-    }
-
-
-    compileElectronEntryPoint(root: Path, options: ElectronBuilderSchema): Observable<BuildEvent> {
-        let electronProjectDir = getSystemPath(resolve(root, normalize(options.electronProjectDir)));
-        return compileElectronEntryPoint(this.context, options, electronProjectDir)
-    }
-
-    startElectron(root: Path, options: ElectronBuilderSchema): Observable<BuildEvent> {
-
-        return new Observable(obs => {
-            let electronProjectDir = getSystemPath(resolve(root, normalize(options.electronProjectDir)));
-
-            let args = [electronProjectDir, '--serve'];
-            let electron: any = require('electron');
-
-            this.electronProcess = spawn('electron', args, {stdio: 'inherit'});
-           // this.electronProcess.on('close', (code) => process.exit(code));
-
-            obs.next({success: true});
-        })
-    }
+                    });
+                }
+            },
+            (error) => obs.next({success: false}));
+    })
+}else {*/
+      return of({ success: true });
+      // }
+    })
+  );
 }
 
+function _compileElectronEntryPoint(
+  root: Path,
+  options: ElectronBuilderOptions,
+  context: BuilderContext
+): Observable<BuilderOutput> {
+  const electronProjectDir = getSystemPath(resolve(root, normalize(options.electronProjectDir)));
+  return compileElectronEntryPoint(context, options, electronProjectDir);
+}
 
-export default ElectronDevServerBuilder;
+function startElectron(root: Path, options: ElectronBuilderOptions): Observable<BuilderOutput> {
+  return new Observable(obs => {
+    const electronProjectDir = getSystemPath(resolve(root, normalize(options.electronProjectDir)));
+    // TODO: make agruments configurable via angular.json
+    const args = [electronProjectDir, '--serve'];
+
+    electronProcess = spawn('electron', args, { stdio: 'inherit' });
+
+    obs.next({ success: true });
+  });
+}
+
+export default createBuilder<json.JsonObject & DevServerBuilderOptions>(run);

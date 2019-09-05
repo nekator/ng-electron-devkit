@@ -1,4 +1,4 @@
 export interface BuildElectronArgs {
-    projectDir: string,
-    platforms: string
+  projectDir: string;
+  platforms: string;
 }
