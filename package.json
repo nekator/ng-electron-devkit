@@ -35,9 +35,8 @@
     ]
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.803.1",
-    "@angular-devkit/build-angular": "^0.803.1",
-    "@angular-devkit/core": "^8.3.0",
+    "@angular-devkit/architect": "^0.803.3",
+    "@angular-devkit/build-angular": "^0.803.3",
     "@angular/compiler": "^8.2.5",
     "@angular/core": "^8.2.5",
     "@types/jest": "^24.0.18",
