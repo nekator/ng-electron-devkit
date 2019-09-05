@@ -6,7 +6,7 @@
   "builders": "builders.json",
   "scripts": {
     "build": "tsc -p packages/builders",
-    "build:sample": "npm run build && sh copy-to-sample.sh"
+    "build:sample": "yarn build && sh copy-to-sample.sh"
   },
   "repository": {
     "type": "git",
