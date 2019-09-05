@@ -1,0 +1,17 @@
+image: Visual Studio 2017
+platform: x64
+
+cache:
+  - node_modules
+  - '%LOCALAPPDATA%\electron\Cache'
+  - '%LOCALAPPDATA%\electron-builder\cache'
+
+
+install:
+  - ps: Install-Product node 10 x64
+  - yarn --frozen-lockfile
+
+build: "yarn install:builder && yarn build"
+
+test_script:
+  - "yarn install:sample:yarn test:integration:win"
