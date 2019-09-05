@@ -13,7 +13,7 @@ install:
 
 build: off
 
-build_script: "yarn install:builder && yarn build"
+build_script: "yarn install:builders && yarn build"
 
 test_script:
   - "yarn install:sample:yarn test:integration:win"
