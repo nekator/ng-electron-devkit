@@ -8,7 +8,10 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "target": "es6",
+    "module": "esnext",
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -16,5 +19,13 @@
       "es2017",
       "dom"
     ]
-  }
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "./src/electron/**/*"
+  ],
+  "include": [
+    "**/*.ts"
+  ]
 }
