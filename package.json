@@ -5,10 +5,12 @@
   "license": "MPL-2.0",
   "builders": "builders.json",
   "scripts": {
+    "install:sample" : "cd sample && yarn",
+    "install:builders" : "cd packages/builders && yarn",
     "build": "./node_modules/.bin/tsc -p packages/builders",
     "test" : "cd packages/builders && yarn test",
     "lint" : "cd packages/builders && yarn lint",
-    "build:sample": "yarn build && sh copy-to-sample.sh"
+    "test:integration": "sh copy-to-sample.sh && cd sample && yarn build:electron"
   },
   "repository": {
     "type": "git",

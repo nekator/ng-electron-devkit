@@ -1,3 +1,8 @@
 language: node_js
 node_js:
   - "node"
+script:
+  - "yarn install:builders && yarn lint"
+  - "yarn install:builders && yarn build"
+  - "yarn install:builders && yarn test"
+  - "yarn install:sample && yarn test:integration"
