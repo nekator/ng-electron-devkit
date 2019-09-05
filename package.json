@@ -5,7 +5,9 @@
   "license": "MPL-2.0",
   "builders": "builders.json",
   "scripts": {
-    "build": "tsc -p packages/builders",
+    "build": "./node_modules/.bin/tsc -p packages/builders",
+    "test" : "cd packages/builders && yarn test",
+    "lint" : "cd packages/builders && yarn lint",
     "build:sample": "yarn build && sh copy-to-sample.sh"
   },
   "repository": {
