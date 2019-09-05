@@ -16,4 +16,4 @@ build: off
 build_script: "yarn install:builders && yarn build"
 
 test_script:
-  - "yarn install:sample:yarn test:integration:win"
+  - "yarn install:sample && yarn test:integration:win"
