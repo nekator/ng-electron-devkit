@@ -10,7 +10,9 @@
     "build": "./node_modules/.bin/tsc -p packages/builders",
     "test" : "cd packages/builders && yarn test",
     "lint" : "cd packages/builders && yarn lint",
-    "test:integration": "sh copy-to-sample.sh && cd sample && yarn build:electron"
+    "test:integration": "sh copy-to-sample.sh && cd sample && yarn build:electron --electronPlatforms=linux",
+    "test:integration:win": "sh copy-to-sample.sh && cd sample && yarn build:electron --electronPlatforms=win",
+    "test:integration:mac": "sh copy-to-sample.sh && cd sample && yarn build:electron --electronPlatforms=mac"
   },
   "repository": {
     "type": "git",
