@@ -23,10 +23,7 @@ script:
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
       yarn install:builders && yarn lint
     fi
-  - |
-    if [ "$TRAVIS_OS_NAME" == "linux" ]; then
-      yarn install:builders && yarn build
-    fi
+  - "yarn install:builders && yarn build"
   - |
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
       yarn install:builders && yarn test
@@ -39,7 +36,7 @@ script:
         -v ~/.cache/electron:/root/.cache/electron \
         -v ~/.cache/electron-builder:/root/.cache/electron-builder \
         electronuserland/builder:wine \
-        /bin/bash -c "yarn --link-duplicates --pure-lockfile && yarn install:sample && yarn test:integration"
+        /bin/bash -c "yarn install:sample && yarn test:integration"
     else
       yarn test:integration:mac
     fi
