@@ -33,7 +33,7 @@ script:
     if [ "$TRAVIS_OS_NAME" == "linux" ]; then
       yarn install:sample && yarn test:integration
     else
-      yarn install:sample && test:integration:mac
+      yarn install:sample && yarn test:integration:mac
     fi
 
 before_cache:
