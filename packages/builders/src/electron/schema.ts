@@ -1,7 +1,5 @@
-
-
 export interface ElectronBuilderSchema {
-    electronTSConfig: string,
-    electronPlatforms: string,
-    electronProjectDir: string
+  electronTSConfig: string;
+  electronPlatforms: string;
+  electronProjectDir: string;
 }
