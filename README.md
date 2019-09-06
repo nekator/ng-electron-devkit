@@ -78,6 +78,11 @@ yarn add --dev @ng-electron-devkit/builders
 ```
 You can find these file in the [sample](sample) project.
 
+## TODO
+
+- [ ] schematics for initial project setup (ng generate electron-application)
+- [ ] livereload for electron code (dev-serve)
+- [ ] E2E Testing with Spectron
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
