@@ -20,7 +20,7 @@ yarn add --dev @ng-electron-devkit/builders
 
 ## Usage
 
-Modifiy your angular.json like this:
+* Modifiy your angular.json like this:
 
 ```js
 {
@@ -62,6 +62,22 @@ Modifiy your angular.json like this:
   ...
 }
 ```
+* create a directory where the electron source code is located
+
+```bash
+<projectName>
+├── angular.json
+├── src
+...
+│   ├── electron
+│   │   ├── electron-builder.json <- config for electron-build
+│   │   ├── index.ts <- electron main file
+│   │   ├── package.json <- second package.json for electron-builder
+│   │   ├── tsconfig.json <- optional: tsconfig for electron main
+...    
+```
+You can find these file in the [sample](sample) project.
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
