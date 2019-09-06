@@ -78,6 +78,14 @@ yarn add --dev @ng-electron-devkit/builders
 ```
 You can find these file in the [sample](sample) project.
 
+## Configuration
+
+All configuration for the [electron-builder](https://www.electron.build/configuration/configuration) is located in the electron-builder.json
+To seperate the production dependencies for electron from the angular app dependencies
+this project uses the [two package.json structure](https://www.electron.build/configuration/configuration) from electron-builder.
+The second package.json also contains the main file for electron and metadata for the electron application (e.g. Name, Author, Description...)
+
+
 ## TODO
 
 - [ ] schematics for initial project setup (ng generate electron-application)
