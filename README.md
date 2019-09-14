@@ -3,6 +3,7 @@
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
 [![Build Status](https://travis-ci.com/nekator/ng-electron-devkit.svg?branch=master)](https://travis-ci.com/nekator/ng-electron-devkit)
 [![Build status](https://ci.appveyor.com/api/projects/status/fudi26k6j15pmejt/branch/master?svg=true)](https://ci.appveyor.com/project/nekator/ng-electron-devkit/branch/master)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=nekator/ng-electron-devkit)](https://dependabot.com)
 
 
 ng-electron-devkit is a collection of angular-cli tools to make developing an angular application for electron easier.
