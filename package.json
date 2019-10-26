@@ -43,7 +43,7 @@
     "@angular/core": "^8.2.12",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.5",
-    "codelyzer": "^5.1.2",
+    "codelyzer": "^5.2.0",
     "electron": "^6.0.9",
     "electron-builder": "^21.2.0",
     "glob": "^7.1.5",
