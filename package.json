@@ -54,7 +54,7 @@
     "protractor": "^5.4.1",
     "spectron": "^9.0.0",
     "ts-jest": "^24.1.0",
-    "tslint": "^5.20.0",
+    "tslint": "^5.20.1",
     "tslint-angular": "^3.0.2",
     "typescript": "~3.5.3"
   },
