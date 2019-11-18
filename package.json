@@ -47,7 +47,7 @@
     "electron": "^7.1.1",
     "electron-builder": "^22.1.0",
     "glob": "^7.1.6",
-    "husky": "^3.0.9",
+    "husky": "^3.1.0",
     "lint-staged": "^9.4.3",
     "jest": "^24.9.0",
     "prettier": "1.19.1",
