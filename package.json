@@ -44,7 +44,7 @@
     "@types/jest": "^24.0.24",
     "@types/node": "^12.12.21",
     "codelyzer": "^5.2.1",
-    "electron": "^7.1.6",
+    "electron": "^7.1.7",
     "electron-builder": "^22.2.0",
     "glob": "^7.1.6",
     "husky": "^3.1.0",
