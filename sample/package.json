@@ -24,7 +24,7 @@
     "@angular/platform-browser-dynamic": "^8.0.0",
     "@angular/router": "^8.0.0",
     "core-js": "^3.6.1",
-    "electron": "^7.1.7",
+    "electron": "^7.1.8",
     "rxjs": "^6.5.4",
     "zone.js": "^0.10.2"
   },
