@@ -4642,13 +4642,6 @@ jasmine@2.8.0:
     glob "^7.0.6"
     jasmine-core "~2.8.0"
 
-jasmine@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/jasmine/-/jasmine-3.5.0.tgz#7101eabfd043a1fc82ac24e0ab6ec56081357f9e"
-  dependencies:
-    glob "^7.1.4"
-    jasmine-core "~3.5.0"
-
 jasminewd2@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/jasminewd2/-/jasminewd2-2.2.0.tgz#e37cf0b17f199cce23bea71b2039395246b4ec4e"
@@ -4794,11 +4787,10 @@ karma-jasmine-html-reporter@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/karma-jasmine-html-reporter/-/karma-jasmine-html-reporter-1.5.1.tgz#0fad2d2ac416bc04724318aad29b89bd86f7bfbc"
 
-karma-jasmine@~3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/karma-jasmine/-/karma-jasmine-3.0.0.tgz#9c0eb431ae18b4eb2cace335593703b09a2f8f1f"
+karma-jasmine@~3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/karma-jasmine/-/karma-jasmine-3.1.0.tgz#e234e2a50bcf4d040c79b8b1826465f783590245"
   dependencies:
-    jasmine "^3.5.0"
     jasmine-core "^3.5.0"
 
 karma-source-map-support@1.4.0:
