@@ -45,7 +45,7 @@
     "@types/node": "^13.5.0",
     "codelyzer": "^5.2.1",
     "electron": "^7.1.10",
-    "electron-builder": "^22.2.0",
+    "electron-builder": "^22.3.2",
     "glob": "^7.1.6",
     "husky": "^4.2.1",
     "lint-staged": "^10.0.2",
