@@ -6844,9 +6844,10 @@ proto-list@~1.2.1:
   resolved "https://registry.yarnpkg.com/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
   integrity sha1-IS1b/hMYMGpCD2QCuOJv85ZHqEk=
 
-protractor@^5.4.1:
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/protractor/-/protractor-5.4.2.tgz#329efe37f48b2141ab9467799be2d4d12eb48c13"
+protractor@^5.4.3:
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/protractor/-/protractor-5.4.3.tgz#35f050741e404a45868618ea648745d89af31683"
+  integrity sha512-7pMAolv8Ah1yJIqaorDTzACtn3gk7BamVKPTeO5lqIGOrfosjPgXFx/z1dqSI+m5EeZc2GMJHPr5DYlodujDNA==
   dependencies:
     "@types/q" "^0.0.32"
     "@types/selenium-webdriver" "^3.0.0"
