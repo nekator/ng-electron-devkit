@@ -6,12 +6,20 @@
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/7zip-bin/-/7zip-bin-5.0.3.tgz#bc5b5532ecafd923a61f2fb097e3b108c0106a3f"
 
-"@angular-devkit/architect@0.803.24", "@angular-devkit/architect@^0.803.3":
+"@angular-devkit/architect@0.803.24":
   version "0.803.24"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.803.24.tgz#4be038dc9f0e2ab04ecb79b08059ccecc4b3f25e"
   integrity sha512-ONY/Ppzyvtb0tqgwnzQvlGlexb5nTyy58ljgL1aQLTO3cNTkpl4IQYUCTdvn61gGA+FWPAXMCCbNqOPZMsOZCQ==
   dependencies:
     "@angular-devkit/core" "8.3.24"
+    rxjs "6.4.0"
+
+"@angular-devkit/architect@^0.803.25":
+  version "0.803.25"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.803.25.tgz#06d109b3b24a080f0bac7374c5328b6a7b886f06"
+  integrity sha512-usV/zEncKCKQuF6AD3pRU6N5i5fbaAux/qZb+nbOz9/2G5jrXwe5sH+y3vxbgqB83e3LqusEQCTu7/tfg6LwZg==
+  dependencies:
+    "@angular-devkit/core" "8.3.25"
     rxjs "6.4.0"
 
 "@angular-devkit/build-angular@^0.803.24":
@@ -100,6 +108,17 @@
   version "8.3.24"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.24.tgz#94e8e6470443e2752c319cb95cdbeae9e37e19fe"
   integrity sha512-xpT5yg+ddGDnifryBv2sRSYtq5F3iZIS+lN/K2AhhEa50B7Z+QaCVlEzoV/IfrGd6sLArdnKYwjLHFZ0LElUuw==
+  dependencies:
+    ajv "6.10.2"
+    fast-json-stable-stringify "2.0.0"
+    magic-string "0.25.3"
+    rxjs "6.4.0"
+    source-map "0.7.3"
+
+"@angular-devkit/core@8.3.25":
+  version "8.3.25"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-8.3.25.tgz#8133a18be811424f10a10f37c712165b0f69f3fc"
+  integrity sha512-l7Gqy1tMrTpRmPVlovcFX8UA3mtXRlgO8kcSsbJ9MKRKNTCcxlfsWEYY5igyDBUVh6ADkgSIu0nuk31ZGTe0lw==
   dependencies:
     ajv "6.10.2"
     fast-json-stable-stringify "2.0.0"
