@@ -4,8 +4,7 @@
 [![Build Status](https://travis-ci.com/nekator/ng-electron-devkit.svg?branch=master)](https://travis-ci.com/nekator/ng-electron-devkit)
 [![Build status](https://ci.appveyor.com/api/projects/status/fudi26k6j15pmejt/branch/master?svg=true)](https://ci.appveyor.com/project/nekator/ng-electron-devkit/branch/master)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=nekator/ng-electron-devkit)](https://dependabot.com)
-
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/001c246521acbe9b0ea9/maintainability)](https://codeclimate.com/github/nekator/ng-electron-devkit/maintainability)
 ng-electron-devkit is a collection of angular-cli tools to make developing an angular application for electron easier.
 
 ## Installation
