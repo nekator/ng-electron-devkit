@@ -53,7 +53,7 @@
     "prettier": "2.0.2",
     "protractor": "^5.4.3",
     "spectron": "^10.0.1",
-    "ts-jest": "^25.3.0",
+    "ts-jest": "^25.3.1",
     "tslint": "^5.20.1",
     "tslint-angular": "^3.0.2",
     "typescript": "~3.5.3"
