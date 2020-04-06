@@ -25,7 +25,7 @@
     "@angular/router": "^8.0.0",
     "core-js": "^3.6.4",
     "electron": "^8.2.0",
-    "rxjs": "^6.5.4",
+    "rxjs": "^6.5.5",
     "zone.js": "^0.10.3"
   },
   "devDependencies": {
