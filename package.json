@@ -50,7 +50,7 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.1.1",
     "jest": "^25.2.7",
-    "prettier": "2.0.2",
+    "prettier": "2.0.3",
     "protractor": "^5.4.3",
     "spectron": "^10.0.1",
     "ts-jest": "^25.3.0",
