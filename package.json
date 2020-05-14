@@ -51,7 +51,7 @@
     "lint-staged": "^10.2.2",
     "jest": "^25.5.4",
     "prettier": "2.0.5",
-    "protractor": "^5.4.4",
+    "protractor": "^7.0.0",
     "spectron": "^10.0.1",
     "ts-jest": "^25.5.1",
     "tslint": "^5.20.1",
