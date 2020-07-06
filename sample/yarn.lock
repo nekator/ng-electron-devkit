@@ -178,11 +178,19 @@
     tslib "^1.9.0"
     yargs "13.1.0"
 
+"@angular/compiler@9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-9.0.0.tgz#87e0bef4c369b6cadae07e3a4295778fc93799d5"
+
 "@angular/compiler@^8.0.0":
   version "8.2.3"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-8.2.3.tgz#9242a28280c92770fec617e97fa31c6a1e8618f2"
   dependencies:
     tslib "^1.9.0"
+
+"@angular/core@9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-9.0.0.tgz#227dc53e1ac81824f998c6e76000b7efc522641e"
 
 "@angular/core@^8.0.0":
   version "8.2.3"
@@ -1466,9 +1474,9 @@ app-builder-lib@22.7.0:
     semver "^7.3.2"
     temp-file "^3.3.7"
 
-app-root-path@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/app-root-path/-/app-root-path-2.2.1.tgz#d0df4a682ee408273583d43f6f79e9892624bc9a"
+app-root-path@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/app-root-path/-/app-root-path-3.0.0.tgz#210b6f43873227e18a4b810a032283311555d5ad"
 
 aproba@^1.0.3, aproba@^1.1.1:
   version "1.2.0"
@@ -2334,19 +2342,24 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-codelyzer@~5.2.2:
-  version "5.2.2"
-  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-5.2.2.tgz#d0530a455784e6bea0b6d7e97166c73c30a5347f"
+codelyzer@~6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/codelyzer/-/codelyzer-6.0.0.tgz#50c98581cc2890e0e9a9f93878dc317115d836ed"
   dependencies:
-    app-root-path "^2.2.1"
+    "@angular/compiler" "9.0.0"
+    "@angular/core" "9.0.0"
+    app-root-path "^3.0.0"
     aria-query "^3.0.0"
     axobject-query "2.0.2"
     css-selector-tokenizer "^0.7.1"
     cssauron "^1.4.0"
     damerau-levenshtein "^1.0.4"
+    rxjs "^6.5.3"
     semver-dsl "^1.0.1"
     source-map "^0.5.7"
     sprintf-js "^1.1.2"
+    tslib "^1.10.0"
+    zone.js "~0.10.3"
 
 collection-visit@^1.0.0:
   version "1.0.0"
@@ -6847,7 +6860,7 @@ rxjs@6.4.0:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@^6.4.0, rxjs@^6.6.0:
+rxjs@^6.4.0, rxjs@^6.5.3, rxjs@^6.6.0:
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.0.tgz#af2901eedf02e3a83ffa7f886240ff9018bbec84"
   dependencies:
@@ -8537,6 +8550,6 @@ yn@3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/yn/-/yn-3.1.1.tgz#1e87401a09d767c1d5eab26a6e4c185182d2eb50"
 
-zone.js@^0.10.3:
+zone.js@^0.10.3, zone.js@~0.10.3:
   version "0.10.3"
   resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.10.3.tgz#3e5e4da03c607c9dcd92e37dd35687a14a140c16"
