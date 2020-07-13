@@ -24,7 +24,7 @@
     "glob": "^7.1.3",
     "rimraf": "^3.0.0",
     "tree-kill": "^1.2.1",
-    "yargs": "15.4.0"
+    "yargs": "15.4.1"
   },
   "author": "Provinzial Rheinland Versicherung AG",
   "license": "MPL-2.0",
