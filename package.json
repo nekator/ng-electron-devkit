@@ -42,7 +42,7 @@
     "@angular/compiler": "^8.2.14",
     "@angular/core": "^8.2.14",
     "@types/jest": "^26.0.7",
-    "@types/node": "^14.0.26",
+    "@types/node": "^14.0.27",
     "codelyzer": "^5.2.2",
     "electron": "^9.1.2",
     "electron-builder": "^22.8.0",
