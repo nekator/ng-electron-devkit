@@ -8,6 +8,6 @@
     "electron": "5.0.10"
   },
   "dependencies": {
-    "handlebars": "^4.0.12"
+    "handlebars": "^4.4.5"
   }
 }
